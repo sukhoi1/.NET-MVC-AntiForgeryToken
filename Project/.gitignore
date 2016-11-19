@@ -1,0 +1,6 @@
+packages/
+ApplyIdentity/obj/
+ApplyIdentity/bin/
+ApplyIdentity/.vs/
+.vs/ApplyIdentity/v14/.suo
+ApplyIdentity/ApplyIdentity.csproj.user

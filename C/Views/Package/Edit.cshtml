@@ -1,0 +1,53 @@
+﻿@model MvcStore.DAL.Package
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Package</legend>
+
+        @Html.HiddenFor(model => model.product_id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.product_type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.product_type)
+            @Html.ValidationMessageFor(model => model.product_type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.barcode)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.barcode)
+            @Html.ValidationMessageFor(model => model.barcode)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.comment)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.comment)
+            @Html.ValidationMessageFor(model => model.comment)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

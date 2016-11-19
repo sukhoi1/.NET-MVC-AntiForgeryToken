@@ -1,0 +1,36 @@
+﻿@model MvcStore.DAL.Package
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Package</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.product_type)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.product_type)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.comment)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.comment)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.barcode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.barcode)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.product_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

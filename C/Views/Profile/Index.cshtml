@@ -1,0 +1,84 @@
+﻿@model MvcStore.Context.UserProfile
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Profile: @Model.UserName</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Package</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.first_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.first_name)
+            @Html.ValidationMessageFor(model => model.first_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.last_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.last_name)
+            @Html.ValidationMessageFor(model => model.last_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.role_id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.role_id)
+            @Html.ValidationMessageFor(model => model.role_id)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+
+<a href id="CSFR">Click me to reset your age!!!!</a>
+
+<script type="text/javascript">
+    $("#CSFR").click(function () {
+
+        $.post("/Profile/Index", { first_name: "asdasd1a", last_name: "sdfsd", role_id: 0, UserId: 0 }, function (data) {
+            debugger;
+            alert("succeess");
+        }, 'application/json; charset=utf-8');
+
+        
+        $.ajax({
+            url: '/Profile/Index',
+        data: { str: "asdasda2" },
+        type: 'POST',
+        contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                debugger;
+                alert(data);
+            },
+            error: function () {
+                alert("error");
+            }
+        });
+
+        /*
+        $.ajax({
+        url: "/Profile/test", //"/Registered/MyAge",
+        type: 'POST',
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        data: { str: "str" },
+        success: function () { alert("Attack succeeded"); },
+        error: function () { alert("error"); },
+        async: true,
+        processData: false
+        });*/
+    });
+</script>
